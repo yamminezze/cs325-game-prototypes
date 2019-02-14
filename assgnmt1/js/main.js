@@ -125,8 +125,8 @@ function releaseBall () {
         ballOnPaddle = false;
         //ball.body.velocity.y = -300;
         //ball.body.velocity.x = -75;
-        ball.body.velocity.y = -550;  //Sets velocities
-        ball.body.velocity.x = -325;
+        ball.body.velocity.y = -500;  //Sets velocities
+        ball.body.velocity.x = -275;
         ball.animations.play('spin'); //Start animation
         introText.visible = false;    //Gets rid of intro text
     }
@@ -135,7 +135,10 @@ function releaseBall () {
 
 function ballLost () {
 
-    lives--;
+    if (!ballOnPaddle){
+      lives--;
+    }
+
     livesText.text = 'lives: ' + lives; //Updates and shows updated lives
 
     if (lives === 0)
