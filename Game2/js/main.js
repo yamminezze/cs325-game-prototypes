@@ -31,6 +31,7 @@ function create() {
 	scoreText = this.add.text(16, 16, 'Score: 0 | 0', { fontSize: '32px', fill: '#922' });
 	
 	bounce = game.add.audio('bounce');
+	bounce.volume = .1;
 }
 
 function update () {
@@ -50,10 +51,10 @@ function update () {
    
    if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
     {
-        paddle2.y -= 8;
+        paddle2.y -= 9;
     }
 	else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
-		paddle2.y += 8;
+		paddle2.y += 9;
 	}
 	if(paddle2.y < paddle1.height / 2){
 		paddle2.y = paddle1.height/2;
@@ -61,8 +62,8 @@ function update () {
 			paddle2.y = game.world.height - paddle2.height/2;
 	}	
    
-	game.physics.arcade.collide(paddle1, ball);
-	game.physics.arcade.collide(paddle2, ball);
+	game.physics.arcade.collide(paddle1, ball, collision);
+	game.physics.arcade.collide(paddle2, ball, collision);
 	
 	if(ball.body.blocked.left){
 		console.log('Player 2 Scored!');
@@ -84,11 +85,12 @@ function update () {
 		ball_launched = false;
 	}
 	
-	game.physics.arcade.collide(ball, paddle1, collision);
-	game.physics.arcade.collide(ball, paddle2, collision);
+	//game.physics.arcade.collide(ball, paddle1, collision);
+	//game.physics.arcade.collide(ball, paddle2, collision);
+	//bounce.play();
 }
 
-function collision(ball, paddle){
+function collision(paddle, ball){
 	bounce.play();
 }
 
