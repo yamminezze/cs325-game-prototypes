@@ -1,5 +1,6 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
+var background;
 var paddle1;
 var paddle2;
 var ball;
@@ -7,6 +8,8 @@ var p1Score = 0;
 var p2Score = 0;
 var scoreText;
 var bounce;
+var randVelocity;
+var randVelocity2;
 
 var ball_launched;
 var ball_velocity;
@@ -16,16 +19,18 @@ function preload() {
 	game.load.image('paddle', 'assets/paddle.png');
 	game.load.image('ball', 'assets/ball1.png');
 	game.load.audio('bounce', 'assets/bounce.wav');
+	game.load.image('backgroundIMG', 'assets/background2.png');
 }
 
 function create() {
+	background = game.add.tileSprite(-80, -50, 800, 800, 'backgroundIMG');
 	paddle1 = create_paddle(0,game.world.centerY);
 	paddle2 = create_paddle(game.world.width - 16, game.world.centerY);
 
 	ball_launched = false;
 	ball_velocity = 400;
 	
-	ball = create_ball(game.world.centerX, game.world.centerY);
+	ball = create_ball(game.world.centerX, game.world.centerY +25);
 	
 	game.input.onDown.add(launch_ball, this);
 	scoreText = this.add.text(16, 16, 'Score: 0 | 0', { fontSize: '32px', fill: '#922' });
@@ -38,10 +43,10 @@ function update () {
 	//control_paddle(paddle1,game.input.y);
 	if (game.input.keyboard.isDown(Phaser.Keyboard.W))
     {
-        paddle1.y -= 8;
+        paddle1.y -=10;
     }
 	else if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
-		paddle1.y += 8;
+		paddle1.y += 10;
 	}
 	if(paddle1.y < paddle1.height / 2){
 		paddle1.y = paddle1.height/2;
@@ -51,10 +56,10 @@ function update () {
    
    if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
     {
-        paddle2.y -= 9;
+        paddle2.y -= 10;
     }
 	else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
-		paddle2.y += 9;
+		paddle2.y += 10;
 	}
 	if(paddle2.y < paddle1.height / 2){
 		paddle2.y = paddle1.height/2;
@@ -84,10 +89,6 @@ function update () {
 		ball.body.velocity.setTo(0,0);
 		ball_launched = false;
 	}
-	
-	//game.physics.arcade.collide(ball, paddle1, collision);
-	//game.physics.arcade.collide(ball, paddle2, collision);
-	//bounce.play();
 }
 
 function collision(paddle, ball){
@@ -123,8 +124,10 @@ function launch_ball(){
 		ball_launched = false;
 	}
 	else{
-		ball.body.velocity.x = -ball_velocity;
-		ball.body.velocity.y = ball_velocity;
+		randVelocity = game.rnd.realInRange(-400, -200);
+		randVelocity2 = game.rnd.realInRange(400, 200);
+		ball.body.velocity.x =  randVelocity2+20;
+		ball.body.velocity.y = 2 + Math.random() * 680;
 		ball_launched = true;
 	}
 }
