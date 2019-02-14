@@ -76,7 +76,7 @@ function update () {
 	}
 	else if(ball.body.blocked.right){
 		console.log('Player 1 Scored!');
-		p2Score+=1;
+		p1Score+=1;
 		scoreText.setText('Score: ' + p1Score + ' | ' + p2Score);
 		ball.x = game.world.centerX;
 		ball.y = game.world.centerY;
