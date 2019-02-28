@@ -34,21 +34,22 @@ BasicGame.menuState.prototype = {
 		//	Naturally I expect you to do something significantly better :)
 		
 		
-		var gameTitle = game.add.text(80,80, 'Pong Escalation', {font: '50px Arial', fill: '#ffffff'});
+		var gameTitle = this.game.add.text(400,80, 'Pong Escalation', {font: '50px Arial', fill: '#ffffff'});
 		gameTitle.anchor.setTo(0.5,0.5);
-		var startTitle = game.add.text(80, game.world.height - 80, 'Press Spacebar to start', {font: '25px Arial', fill: '#ffffff'});
+		var startTitle = this.game.add.text(400, this.game.world.height - 80, 'First Player to 5 points wins\n      Press *Up* to start', {font: '25px Arial', fill: '#ffffff'});
 		startTitle.anchor.setTo(0.5,0.5);
 
 		
-		var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACE);
+		//var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACE);
 		
 		
 		
 	},
 
 	update: function () {
-		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACE)){
+		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP)){
 			this.state.start('play');
+			console.log("Test");
 		}
 		//spaceKey.onDown.addOnce(this.startGame, this);
 		//game.input.keyboard.isDown(Phaser.Keyboard.DOWN
@@ -56,14 +57,5 @@ BasicGame.menuState.prototype = {
 
 	},
 
-	startGame: function (pointer) {
-
-		//	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-		this.music.stop();
-
-		//	And start the actual game
-		this.state.start('play');
-
-	}
 
 };

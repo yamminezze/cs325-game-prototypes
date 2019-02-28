@@ -3,18 +3,26 @@ var winState = function(game){}
 var winText;
 
 winState.prototype = {
-	create: function(){
-		if(p1Score == 5){
-			var winText = game.add.text('Player 1 wins! Press *Spacebar* to play again');
+	init: function(p1Score, p2Score){
+		if(p1Score > p2Score){
+			alert("Player 1 wins!");
 		}
 		else{
-			var winText = game.add.text('Player 2 wins! Press *Spacebar* to play again');
+			alert("Player 2 Wins!");
 		}
-		
-		spaceKey.onDown.addOnce(this.restart, this);
+	},
+	create: function(){
+		var text = this.game.add.text('Press *Up* to play again');
+		//spaceKey.onDown.addOnce(this.restart, this);
 	},
 	
-	restart: function(){
-		game.state.start('menu')
-	}	
+	update: function(){
+		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP)){
+			this.state.start('menu');
+		}
+	}
+	
+	//restart: function(){
+	//	game.state.start('menu')
+	//}	
 }

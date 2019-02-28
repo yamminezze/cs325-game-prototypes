@@ -6,6 +6,7 @@ var ball;
 var p1Score = 0;
 var p2Score = 0;
 var scoreText;
+var instText;
 var bounce;
 var randVelocity;
 var randVelocity2;
@@ -48,19 +49,20 @@ BasicGame.playState.prototype = {
     create: function () {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        background = game.add.tileSprite(-80, -50, 800, 800, 'backgroundIMG');
-		paddle1 = create_paddle(0,game.world.centerY);
-		paddle2 = create_paddle(game.world.width - 16, game.world.centerY);
+        background = this.game.add.tileSprite(-80, -50, 800, 800, 'backgroundIMG');
+		paddle1 = this.create_paddle(0,this.game.world.centerY);
+		paddle2 = this.create_paddle(this.game.world.width - 16, this.game.world.centerY);
 	
 		ball_launched = false;
 		ball_velocity = 400;
 	
-		ball = create_ball(game.world.centerX, game.world.centerY +25);
+		ball = this.create_ball(this.game.world.centerX, this.game.world.centerY +25);
 	
-		game.input.onDown.add(launch_ball, this);
+		this.game.input.onDown.add(this.launch_ball, this);
 		scoreText = this.add.text(16, 16, 'Score: 0 | 0', { fontSize: '32px', fill: '#922' });
+		instText = this.add.text(540, 16, 'Click to launch ball', { fontSize: '24px', fill: '#922' });
 	
-		bounce = game.add.audio('bounce');
+		bounce = this.game.add.audio('bounce');
 		bounce.volume = .1;
         
     },
@@ -69,41 +71,41 @@ BasicGame.playState.prototype = {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         //control_paddle(paddle1,game.input.y);
-		if (game.input.keyboard.isDown(Phaser.Keyboard.W))
+		if (this.game.input.keyboard.isDown(Phaser.Keyboard.W))
 		{
 			paddle1.y -=13;
 		}
-		else if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
+		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.S)){
 			paddle1.y += 13;
 		}
 		if(paddle1.y < paddle1.height / 2){
 		paddle1.y = paddle1.height/2;
-		} else if(paddle1.y > game.world.height - paddle1.height/2){
-			paddle1.y = game.world.height - paddle1.height/2;
+		} else if(paddle1.y > this.game.world.height - paddle1.height/2){
+			paddle1.y = this.game.world.height - paddle1.height/2;
 		}	
 	
-		if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
+		if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
 			paddle2.y -= 13;
 		}
-		else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
 			paddle2.y += 13;
 		}
 		if(paddle2.y < paddle1.height / 2){
 			paddle2.y = paddle1.height/2;
-		} else if(paddle2.y > game.world.height - paddle2.height/2){
-				paddle2.y = game.world.height - paddle2.height/2;
+		} else if(paddle2.y > this.game.world.height - paddle2.height/2){
+				paddle2.y = this.game.world.height - paddle2.height/2;
 		}	
    
-		game.physics.arcade.collide(paddle1, ball, collision);
-		game.physics.arcade.collide(paddle2, ball, collision);
+		this.game.physics.arcade.collide(paddle1, ball, this.collision);
+		this.game.physics.arcade.collide(paddle2, ball, this.collision);
 	
 		if(ball.body.blocked.left){
 			console.log('Player 2 Scored!');
 			p2Score+=1;
 			scoreText.setText('Score: ' + p1Score + ' | ' + p2Score);
-			ball.x = game.world.centerX;
-			ball.y = game.world.centerY;
+			ball.x = this.game.world.centerX;
+			ball.y = this.game.world.centerY;
 			ball.body.velocity.setTo(0,0);
 			ball_launched = false;
 			
@@ -112,14 +114,14 @@ BasicGame.playState.prototype = {
 			console.log('Player 1 Scored!');
 			p1Score+=1;
 			scoreText.setText('Score: ' + p1Score + ' | ' + p2Score);
-			ball.x = game.world.centerX;
-			ball.y = game.world.centerY;
+			ball.x = this.game.world.centerX;
+			ball.y = this.game.world.centerY;
 			ball.body.velocity.setTo(0,0);
 			ball_launched = false;
 		}
 		
 		if(p1Score == 5 || p2Score == 5){
-			Win();
+			this.Win(p1Score, p2Score);
 		}
     },
 	
@@ -129,9 +131,9 @@ BasicGame.playState.prototype = {
 	},
 
 	create_paddle: function(x,y){
-		var paddle = game.add.sprite(x,y, 'paddle');
+		var paddle = this.game.add.sprite(x,y, 'paddle');
 		paddle.anchor.setTo(0.5,0.5);
-		game.physics.arcade.enable(paddle);
+		this.game.physics.arcade.enable(paddle);
 		paddle.body.collideWorldBounds = true;
 		paddle.body.immovable = true;
 	
@@ -139,9 +141,9 @@ BasicGame.playState.prototype = {
 	},
 
 	create_ball: function(x,y){
-		var ball = game.add.sprite(x,y,'ball');
+		var ball = this.game.add.sprite(x,y,'ball');
 		ball.anchor.setTo(0.5,0.5);
-		game.physics.arcade.enable(ball);
+		this.game.physics.arcade.enable(ball);
 		ball.body.collideWorldBounds = true;
 		ball.body.bounce.setTo(1.1,1.1);
 	
@@ -151,14 +153,14 @@ BasicGame.playState.prototype = {
 
 	launch_ball: function(){
 		if(ball_launched){
-			ball.x = game.world.centerX;
-			ball.y = game.world.centerY;
+			ball.x = this.game.world.centerX;
+			ball.y = this.game.world.centerY;
 			ball.body.velocity.setTo(0,0);
 			ball_launched = false;
 		}
 		else{
-			randVelocity = game.rnd.realInRange(-400, -200);
-			randVelocity2 = game.rnd.realInRange(400, 200);
+			randVelocity = this.game.rnd.realInRange(-400, -200);
+			randVelocity2 = this.game.rnd.realInRange(400, 200);
 			ball.body.velocity.x =  randVelocity2+20;
 			ball.body.velocity.y = 2 + Math.random() * 680;
 			ball_launched = true;

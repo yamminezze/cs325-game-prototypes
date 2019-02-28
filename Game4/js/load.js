@@ -24,11 +24,11 @@ BasicGame.loadState.prototype = {
 
 		//	Here we load the rest of the assets our game needs.
 		//	As this is just a Project Template I've not provided these assets, swap them for your own.
-		game.load.image('paddle', 'assets/paddle.png');
-		game.load.image('ball', 'assets/ball1.png');
-		game.load.audio('bounce', 'assets/bounce.wav');
-		game.load.image('backgroundIMG', 'assets/background2.png');
-		game.load.image('menuImg', 'assets/menu.jpg');
+		this.game.load.image('paddle', 'assets/paddle.png');
+		this.game.load.image('ball', 'assets/ball1.png');
+		this.game.load.audio('bounce', 'assets/bounce.wav');
+		this.game.load.image('backgroundIMG', 'assets/background2.png');
+		this.game.load.image('menuImg', 'assets/menu.jpg');
 	},
 
 	create: function () {
