@@ -49,7 +49,9 @@ BasicGame.playState.prototype = {
     create: function () {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        background = this.game.add.tileSprite(-80, -50, 800, 800, 'backgroundIMG');
+        var field = this.game.add.tileSprite(-80, -50, 800, 800, 'field');
+		background = this.game.add.tileSprite(-80, -50, 800, 800, 'backgroundIMG');
+		background.alpha = 0.2;
 		paddle1 = this.create_paddle(0,this.game.world.centerY);
 		paddle2 = this.create_paddle(this.game.world.width - 16, this.game.world.centerY);
 	

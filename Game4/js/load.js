@@ -29,6 +29,7 @@ BasicGame.loadState.prototype = {
 		this.game.load.audio('bounce', 'assets/bounce.wav');
 		this.game.load.image('backgroundIMG', 'assets/background2.png');
 		this.game.load.image('menuImg', 'assets/menu.jpg');
+		this.game.load.image('field', 'assets/field.jpg');
 	},
 
 	create: function () {

@@ -33,7 +33,7 @@ BasicGame.menuState.prototype = {
 		//	Here all we're doing is playing some music and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
 		
-		
+		var menuBackground = this.game.add.tileSprite(0, -50, 800, 800, 'menuImg');
 		var gameTitle = this.game.add.text(400,80, 'Pong Escalation', {font: '50px Arial', fill: '#ffffff'});
 		gameTitle.anchor.setTo(0.5,0.5);
 		var startTitle = this.game.add.text(400, this.game.world.height - 80, 'First Player to 5 points wins\n      Press *Up* to start', {font: '25px Arial', fill: '#ffffff'});
