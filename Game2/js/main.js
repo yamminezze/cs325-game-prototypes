@@ -43,10 +43,10 @@ function update () {
 	//control_paddle(paddle1,game.input.y);
 	if (game.input.keyboard.isDown(Phaser.Keyboard.W))
     {
-        paddle1.y -=10;
+        paddle1.y -=13;
     }
 	else if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
-		paddle1.y += 10;
+		paddle1.y += 13;
 	}
 	if(paddle1.y < paddle1.height / 2){
 		paddle1.y = paddle1.height/2;
@@ -56,10 +56,10 @@ function update () {
    
    if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
     {
-        paddle2.y -= 10;
+        paddle2.y -= 13;
     }
 	else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
-		paddle2.y += 10;
+		paddle2.y += 13;
 	}
 	if(paddle2.y < paddle1.height / 2){
 		paddle2.y = paddle1.height/2;

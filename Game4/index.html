@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello! Amaze!</title>
+    <script src="js/phaser.js"></script>
+    <script src="js/phaser.min.js"></script>
+	<script src="js/boot.js"></script>
+	<script src="js/load.js"></script>
+    <script src="js/menu.js"></script>
+	<script src="js/play.js"></script>
+    <script src="js/win.js"></script>
+	<script src="js/game.js"></script>
+	
+	<script>
+		(function() {
+			var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
+			game.state.add('boot', BasicGame.bootState);
+			game.state.add('load', BasicGame.loadState);
+			game.state.add('menu', BasicGame.menuState);
+			game.state.add('play', BasicGame.playState);
+			game.state.add('win', BasicGame.winState);
+			game.state.start("boot");
+		})();    
+	</script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Pong: Escalation 2.0</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+A variation of pong except over time the ball gets faster and faster
+</li>
+
+<li><strong>Technical Merit:</strong>
+The game becomes more and more intense as the game goes on.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+I was limited by my lack of knowledge of the physics in the game engine. But I know much more now that ive created this game.
+</li>
+
+<li><strong>Prototype Assets:</strong>
+Assets came from google images and GMU library databases: https://library.prosoundeffects.com/#!explorer?s=bounce
+
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+This is a version of pong where the ball increases speed, increasing difficulty.
+</li>
+
+<li><strong>High Concept:</strong>
+Outplay your opponent until they make a mistake
+</li>
+
+<li><strong>Theme:</strong>
+?
+</li>
+
+<li><strong>Mandated Variety:</strong>
+The input is the up and down arrow keys as well as "W" and "S". This tests reaction time
+</li>
+
+<li><strong>Prototype Goal:</strong>
+Ball bouncing physics and user input measurment. Also sprite interaction.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+Having the satisfaction of out-scoring your opponent.
+</li>
+
+<li><strong>Gameplay:</strong>
+Click to start and launch the ball. Player 1 controls with "W" and "S" player 2 controls with the up and down arrow keys. Basic pong rules but ball gets faster over time.
+</li>
+
+<li><strong>Strategies:</strong>
+Knowing where to bouce the ball so that the opponent doesnt have time to react.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+This game doesn't have much story. Thats up to your imagination.
+</li>
+
+<li><strong>Target Audience:</strong>
+This game is great for all ages and levels of experience. Mostly for competitive players
+</li>
+
+<li><strong>Play Time:</strong>
+A couple of minutes
+
+Version by Yammin Ezzedine
+</li>
+
+</ul>
+
+</div>
+</body>
+</html>

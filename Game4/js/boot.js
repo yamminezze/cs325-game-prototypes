@@ -2,11 +2,11 @@
 
 var BasicGame = {};
 
-BasicGame.Boot = function (game) {
+BasicGame.bootState = function (game) {
 
 };
 
-BasicGame.Boot.prototype = {
+BasicGame.bootState.prototype = {
 
     init: function () {
 
@@ -45,7 +45,7 @@ BasicGame.Boot.prototype = {
 
         //  By this point the preloader assets have loaded to the cache, we've set the game settings
         //  So now let's start the real preloader going
-        this.state.start('Preloader');
+        this.state.start('load');
 
     }
 
