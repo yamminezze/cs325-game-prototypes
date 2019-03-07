@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello! Amaze!</title>
+    <script src="js/phaser.js"></script>
+    <script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Starship Elimination</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+An iteration of the game "Space Bam!". The concept itself is similar to many space shooters but uses multiplayer and comedic aspects to stand out. In my iteration, I added sounds and backgrounds as
+well as background music and game over sound effects. I fixed a logical error that was causing the robots to not move faster as the game progressed as intended. I also upgraded the physics of the robot creation to balance out the difficulty.
+Less robots spawn now and their starting drop speed is decreased, but with the fixing of the logical error, their speed will increase. This is where the difficulty comes in. Its much
+better this way as the game will become progressively more difficult and thus rewarding when getting a high score.
+</li>
+
+<br>
+
+<li><strong>Technical Merit:</strong>
+The game is played by two players togther. There is also the use of groups to handle enemies and lasers.
+</li>
+
+<br>
+
+<li><strong>Prototype Postmortem:</strong>
+Making the game more asthetically pleasing was the hardest part. Adding sound effects that were not annoying took a long time because the sounds of lasers firing and robots dying happens a lot
+in the game. You don't want the sound effects to annoy the player. I also realized the importance of having a background. Specifically one that matches the overall theme of the game.
+</li>
+
+<br>
+
+<li><strong>Prototype Assets:</strong>
+<br> - Enemy: https://www.starship.xyz <br>
+ - Red Spaceship: https://www.kisspng.com/png-rocket-spacecraft-outer-space-red-spaceship-78840/preview.html <br>
+ - Rocketship: https://www.kisspng.com/png-rocket-spacecraft-clip-art-space-ship-395742/ <br>
+ - Soundeffects - GMU Database: https://library.prosoundeffects.com/ <br>
+ - Background: https://masoncares.gmu.edu/upcoming-events/photo-gallery/photo-1-3/ <br>
+</li>
+
+<br>
+
+<li><strong>Prototype Closest Other Game:</strong>
+This Prototype is close to games like Space Invaders. It is also an iteration of "Space Bam!" and uses code from it.
+</li>
+
+<br>
+
+<li><strong>High Concept:</strong>
+Use teamwork to stop the robots from delivering the food to the bottom of your screen
+</li>
+
+<br>
+
+<li><strong>Theme:</strong>
+Iteration
+</li>
+
+<br>
+
+<li><strong>Mandated Variety:</strong>
+The input is keyboard input to control the ships and fire. The randomness came from where the enemies spawn and how fast they dropped.
+</li>
+
+<br>
+
+<li><strong>Prototype Goal:</strong>
+Understand groups better. When to use them and how they're useful. Also gain more experience with the physics of the game engine.
+</li>
+
+<br>
+
+<li><strong>Player Experience Goals:</strong>
+Teamwork to get a higher and higher score together each time.
+</li>
+
+<br>
+
+<li><strong>Gameplay:</strong>
+Players can move left and right using their assigned controls and fire at the oncoming enemies. The enemies travel straight down towards the bottom of the screen. Any time a laser is
+fired and hits an enemy, the laser and enemy both disappear, 10 points are added, and a new enemy spawns.
+</li>
+
+<br>
+
+<li><strong>Strategies:</strong>
+Coordinate the firing between both players to ensure no robots reach the bottom. Some inputted shots won't register because the keyboard only takes one key at a time so thay also needs coordination.
+</li>
+
+<br>
+
+<li><strong>Story/Setting/Premise:</strong>
+The robots are taking over campus and you and your friend just cant take it anymore. Get to work. Eliminate every last one of them.
+</li>
+
+<br>
+
+<li><strong>Target Audience:</strong>
+This game is great for all ages and levels of experience. Those that enjoy constantly breaking highscores will especially enjoy the game.
+</li>
+
+<br>
+
+<li><strong>Play Time:</strong>
+No more than a minute or two each playthrough.
+<br>
+<br>
+<strong>Version by Yammin Ezzedine</strong>
+</li>
+
+</ul>
+
+</div>
+</body>
+</html>
