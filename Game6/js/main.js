@@ -27,7 +27,7 @@ window.onload = function() {
     var currSpeedY = 90;
     var numEnemies = 8;
     var killCounter = 0;
-    var distance = 5000;
+    var distance = 0;
     var played = false;
 
     function create() {
