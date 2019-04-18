@@ -66,7 +66,7 @@ window.onload = function() {
         player1.body.setSize(15,25,30,20);
 
         distanceText = game.add.text(16, 16, 'Distance: 0', { fontSize: '32px', fill: '#FFF' });
-        botsText = game.add.text(380, 5, 'Reach 10,000 to get home!', { fontSize: '24px', fill: '#FFF' });
+        botsText = game.add.text(340, 10, 'Reach 10,000 to get back home!', { fontSize: '24px', fill: '#FFF' });
 
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
