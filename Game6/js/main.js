@@ -1,5 +1,3 @@
-// "use strict";
-
 window.onload = function() {
 
     var game = new Phaser.Game( 1000, 800, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
@@ -16,7 +14,6 @@ window.onload = function() {
     var player1;
     var meteor;
 
-    //var laserTime = 0;
     var done = false;
     var currSpeedY = 90;
     var numMeteors = 8;
