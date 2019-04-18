@@ -45,6 +45,7 @@ window.onload = function() {
         // Make it bounce off of the world bounds.
         player1.body.collideWorldBounds = true;
 
+        //Adjusts hitbox
         player1.body.setSize(15,25,30,20);
 
         distanceText = game.add.text(16, 16, 'Distance: 0', { fontSize: '32px', fill: '#FFF' });
@@ -109,7 +110,6 @@ window.onload = function() {
         b.body.velocity.y = currSpeedY + (Math.random() * 95);
         b.scale.setTo(.5, .5);
         b.checkWorldBounds = true;
-        //b.events.onOutOfBounds.add(endGame, this);
         b.events.onOutOfBounds.add(meteorFall, this);
 
     }
