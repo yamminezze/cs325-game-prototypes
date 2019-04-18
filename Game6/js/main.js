@@ -169,7 +169,7 @@ window.onload = function() {
         //hit.play();
         //expload.play();
         killCounter++;
-        distance += 10;
+        distance += 20;
         distanceText.text = 'Distance: ' + distance;
         if (killCounter % 10 == 0) {currSpeedY += 10;}
         var b = enemies.create(50 + (Math.random() * (game.world.width - 100)), 0, 'enemy');
