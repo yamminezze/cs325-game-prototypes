@@ -24,9 +24,11 @@ window.onload = function() {
     function create() {
 
         music = game.add.audio('music');
+        music.volume = 0.05;
         music.play();
 
         aw = game.add.audio('aw');
+        aw.volume = 0.1;
 
 
         // Create a sprite at the center of the screen using the 'logo' image.
