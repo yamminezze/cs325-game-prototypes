@@ -112,8 +112,10 @@ window.onload = function() {
             player1.body.velocity.x = 250;
         }
 
-        if(distance >= 1000){
+        if(distance >= 10000){
           win();
+
+          //victory.play();
         }
 
     }
